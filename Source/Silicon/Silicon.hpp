@@ -21,3 +21,4 @@ namespace se
 //All includes goes here...
 
 #include "Math/Vector2.hpp"
+#include "Util/Time/Time.hpp"
