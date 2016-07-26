@@ -22,3 +22,4 @@ namespace se
 
 #include "Math/Vector2.hpp"
 #include "Util/Time/Time.hpp"
+#include "Util/Time/Clock.hpp"

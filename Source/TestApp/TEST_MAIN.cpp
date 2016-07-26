@@ -3,11 +3,14 @@
 
 int main()
 {
-	se::Vector2<int> test(3,3);
-	se::Vector2<int> test2(2, 2);
+	se::Time maxTime = se::Milliseconds(1000);
+	se::Clock clock;
 
-	test = test2;
-	std::cout <<test<<"\n";
+	while (clock.GetEleapsedTime().AsMicroseconds() < maxTime.AsMicroseconds())
+	{
+		std::cout << clock.GetEleapsedTime().AsSeconds() <<"\n";
+	}
 
 	std::cin.get();
+	return 0;
 }
