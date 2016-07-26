@@ -21,7 +21,7 @@ namespace se
 		T y;
 
 			//---------------
-			//LOGIC OPERATORS
+			// LOGIC OPERATORS
 			//---------------
 
 		Vector2<T>& operator=(const Vector2<T>& other);
@@ -68,7 +68,7 @@ namespace se
 	{}
 
 		//---------------
-		//LOGIC OPERATORS
+		// LOGIC OPERATORS
 		//---------------
 
 	template<class T>
@@ -129,5 +129,5 @@ namespace se
 	
 	typedef Vector2<int>		Vector2i;
 	typedef Vector2<float>		Vector2f;
-	typedef Vector2<unsigned>	Vector2us;
+	typedef Vector2<unsigned>	Vector2u;
 }
