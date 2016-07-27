@@ -69,9 +69,9 @@ namespace se
 		}
 
 
-		void SetTextColor(Color color, const HANDLE & console)
+		void SetTextColor(uint8_t foreground, uint8_t background, const HANDLE & console)
 		{
-			SetConsoleTextAttribute(console, color);
+			SetConsoleTextAttribute(console, foreground + (background * 16));
 		}
 
 
@@ -110,6 +110,8 @@ namespace se
 
 			case TextSize::J: return Vector2u16(10, 18);
 			}
+
+			return Vector2u16(8, 12);
 		}
 	}
 }

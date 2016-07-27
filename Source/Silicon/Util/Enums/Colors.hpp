@@ -21,5 +21,6 @@ namespace se
 		Light_Purple,
 		Light_Yellow,
 		Light_White = 15,
+
 	};
 }
