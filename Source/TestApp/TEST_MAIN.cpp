@@ -1,4 +1,4 @@
-#include "../Silicon/Silicon.hpp"
+#include "Silicon/Silicon.hpp"
 #include <iostream>
 
 using namespace se;
