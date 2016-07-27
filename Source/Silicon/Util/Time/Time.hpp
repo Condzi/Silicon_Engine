@@ -16,8 +16,8 @@ namespace se
 		int64_t AsMicroseconds() const;
 
 		friend Time Seconds(float val);
-		friend Time Milliseconds(int32_t val);
-		friend Time Microseconds(int64_t val);
+		friend Time Milliseconds(const int32_t & val);
+		friend Time Microseconds(const int64_t & val);
 
 		Time& operator=(const Time & other);
 		

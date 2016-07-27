@@ -8,10 +8,10 @@ namespace se
 		m_startTime = std::chrono::steady_clock::now();
 	}
 
-
 	Clock::~Clock()
 	{
 	}
+
 
 	Time Clock::GetEleapsedTime()
 	{

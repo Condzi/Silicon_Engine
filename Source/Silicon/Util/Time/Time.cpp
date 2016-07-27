@@ -42,12 +42,12 @@ namespace se
 		return Time(static_cast<int64_t>(val * 1000000));
 	}
 
-	Time Milliseconds(int32_t val)
+	Time Milliseconds(const int32_t & val)
 	{
 		return Time(static_cast<int64_t>(val) * 1000);
 	}
 
-	Time Microseconds(int64_t val)
+	Time Microseconds(const int64_t & val)
 	{
 		return Time(val);
 	}
