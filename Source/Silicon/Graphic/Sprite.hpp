@@ -8,7 +8,7 @@ namespace se
 	{
 	public:
 		Sprite();
-		Sprite(Vector2i position, Image & imagePointer);
+		Sprite(Image & imagePointer, Vector2i position);
 		~Sprite();
 
 		Vector2i GetPosition();
