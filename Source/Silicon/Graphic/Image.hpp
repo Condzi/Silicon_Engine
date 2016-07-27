@@ -1,10 +1,14 @@
 #pragma once
-#include "Silicon/Silicon.hpp"
 #include <vector>
 #include <fstream>
+#include <iostream>
+#include "Pixel.hpp"
+
 
 namespace se
 {
+	class Pixel;
+
 	class Image
 	{
 	public:
@@ -12,7 +16,7 @@ namespace se
 		Image(const std::string & pathToFile);
 		~Image();
 
-		std::vector<se::Pixel> GetPixels();
+		std::vector<Pixel> GetPixels();
 		Vector2u16 GetSize();
 		const std::vector<se::Pixel> & GetPixelsReference();
 

@@ -37,9 +37,9 @@ namespace se
 			pixel_look pixel_fg_color pixel_bg_color pixel_position (relative to 0,0) <- repat 
 			
 		*/
-		Vector2u16 size;
-		Pixel temporaryPixel;
-		uint16_t temporaryInt;
+		Vector2u16 size = Vector2u16();
+		Pixel temporaryPixel = Pixel();
+		uint16_t temporaryInt = 0;
 		std::vector<Pixel> pixels;
 		std::ifstream file(pathToFile);
 
@@ -49,7 +49,8 @@ namespace se
 		file >> size.x;
 		file >> size.y;
 
-		while (!file.eof())
+
+		for(unsigned i = 0; i < size.x * size.y; ++i)
 		{
 			file >> temporaryInt;
 			temporaryPixel.SetLook(temporaryInt);
@@ -60,14 +61,14 @@ namespace se
 			file >> temporaryInt;
 			temporaryPixel.SetPosition(Vector2i(temporaryInt, temporaryPixel.GetPosition().y));
 			file >> temporaryInt;
-			temporaryPixel.SetPosition(Vector2i(temporaryPixel.GetPosition().y, temporaryInt));
+			temporaryPixel.SetPosition(Vector2i(temporaryPixel.GetPosition().x, temporaryInt));
 
 			pixels.push_back(temporaryPixel);
 		}
 
 		file.close();
 
-		if (pixels.size() < size.x * size.y || pixels.size() > size.x * size.y)
+		if (pixels.size() != size.x * size.y)
 			return false;
 
 		m_pixels = pixels;

@@ -1,5 +1,7 @@
 #pragma once
-#include "Silicon/Silicon.hpp"
+#include "Silicon/Util/ConsoleManip/ConsoleManip.hpp"
+#include "Silicon/Math/Vector2.hpp"
+
 
 namespace se
 {
@@ -23,8 +25,8 @@ namespace se
 		void Move(Vector2i offset);
 
 
-		friend bool operator==(const Pixel & left, const Pixel & right);
-		friend bool operator!=(const Pixel & left, const Pixel & right);
+		//friend bool operator==(const Pixel & left, const Pixel & right);
+		//friend bool operator!=(const Pixel & left, const Pixel & right);
 		friend std::ostream & operator<<(std::ostream & os, const Pixel & pixel);
 
 	private:

@@ -1,6 +1,7 @@
 #pragma once
 #include <cinttypes>
 
+
 namespace se
 {
 	enum Color : uint8_t

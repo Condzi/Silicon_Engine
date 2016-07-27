@@ -5,9 +5,14 @@ using namespace se;
 
 int main()
 {
-	Image img("image.SEgraphics");
+	Image img;
 
-	for (int i = 0; i < img.GetSize().x * img.GetSize().y; ++i)
+	if (!img.LoadFromFile(("Resource/image.SEgraphics")))
+		std::cout << "Failed";
+	std::vector<Pixel> px = img.GetPixels();
+
+
+	for (int i = 0; i < px.size(); ++i)
 	{
 		std::cout << img.GetPixelsReference()[i];
 	}
