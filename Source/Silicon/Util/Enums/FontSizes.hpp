@@ -1,5 +1,5 @@
 #pragma once
-#include "../../Silicon.hpp"
+#include "Silicon/Silicon.hpp"
 
 namespace se
 {

@@ -1,6 +1,6 @@
 #pragma once
 #include <windows.h>
-#include "../../Silicon.hpp"
+#include "Silicon/Silicon.hpp
 
 namespace se
 {

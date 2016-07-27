@@ -27,3 +27,6 @@ namespace se
 #include "Util/Enums/Colors.hpp"
 #include "Util/Enums/FontSizes.hpp"
 #include "Util/ConsoleManip/ConsoleManip.hpp"
+
+#include "Graphic/Pixel.hpp"
+#include "Graphic/Image.hpp"

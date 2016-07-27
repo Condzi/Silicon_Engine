@@ -1,16 +1,17 @@
 #include "../Silicon/Silicon.hpp"
 #include <iostream>
 
+using namespace se;
+
 int main()
 {
+	Image img("image.SEgraphics");
 
-	se::in::SetTextColor(se::Color::Light_Red, se::Color::Light_Green);
-	std::cout << 'x';
-	//for (int i = 0; i < 240; ++i)
-	//{
-	//	se::in::SetTextColor(i);
-	//	std::cout<<i;
-	//}
+	for (int i = 0; i < img.GetSize().x * img.GetSize().y; ++i)
+	{
+		std::cout << img.GetPixelsReference()[i];
+	}
+	
 	std::cin.get();
 	return 0;
 }
