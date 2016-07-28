@@ -17,7 +17,7 @@ namespace se
 
 
 	Sprite::Sprite() :
-		m_imagePointer(0),
+		m_imagePointer(nullptr),
 		m_position(0, 0)
 	{}
 
@@ -35,14 +35,22 @@ namespace se
 		return m_position;
 	}
 
-	Image Sprite::GetImage()
-	{
-		return *m_imagePointer;
-	}
-
 	Vector2u16 Sprite::GetSize()
 	{
 		return m_imagePointer->m_size;
+	}
+
+	Image Sprite::GetImage()
+	{
+		if (!HaveSprite())
+			return Image();
+
+		return *m_imagePointer;
+	}
+
+	bool Sprite::HaveSprite()
+	{
+		return m_imagePointer != nullptr;
 	}
 
 	void Sprite::SetPosition(Vector2i newPosition)
@@ -68,5 +76,10 @@ namespace se
 	{
 		for (Pixel & px : m_imagePointer->m_pixels)
 			std::cout << px;
+	}
+
+	void Sprite::Draw(Renderer & renderer)
+	{
+		renderer.AddSprite(*this);
 	}
 }

@@ -1,10 +1,12 @@
 #pragma once
 #include "Image.hpp"
+#include "Silicon/Graphic/Renderer/Renderer.hpp"
 
 
 namespace se
 {
 	class Image; 
+	class Renderer;
 
 	class Sprite
 	{
@@ -18,15 +20,16 @@ namespace se
 		~Sprite();
 
 		Vector2i GetPosition();
-		Image GetImage();
 		Vector2u16 GetSize();
+		Image GetImage();
+		bool HaveSprite();
 
 		void SetPosition(Vector2i newPosition);
 		void Move(Vector2i offset);
 		void SetImagePointer(Image & imageReference);
 
 		void Draw();
-		//void Draw(Pixels buffer[]) instead of Draw()
+		void Draw(Renderer & renderer);
 
 	private:
 		Image * m_imagePointer;
