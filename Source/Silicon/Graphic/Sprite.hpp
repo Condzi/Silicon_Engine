@@ -11,7 +11,7 @@ namespace se
 	class Sprite
 	{
 	private:
-		void setImagePixelsAbsoltePosition();
+		void setImagePixelsAbsolutePosition();
 		void setImagePixelsRelativePosition();
 
 	public:
