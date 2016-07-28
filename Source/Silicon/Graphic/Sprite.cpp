@@ -40,12 +40,16 @@ namespace se
 		return *m_imagePointer;
 	}
 
+	Vector2u16 Sprite::GetSize()
+	{
+		return m_imagePointer->m_size;
+	}
+
 	void Sprite::SetPosition(Vector2i newPosition)
 	{
 		setImagePixelsAbsoltePosition();
 		m_position = newPosition;
 		setImagePixelsRelativePosition();
-
 	}
 
 	void Sprite::Move(Vector2i offset)
