@@ -3,6 +3,18 @@
 
 namespace se
 {
+	void Sprite::setImagePixelsAbsoltePosition()
+	{
+		for (Pixel & px : m_imagePointer->m_pixels)
+			px.SetPosition(Vector2i(px.GetPosition().x - m_position.x, px.GetPosition().y - m_position.y));
+	}
+
+	void Sprite::setImagePixelsRelativePosition()
+	{
+		for (Pixel & px : m_imagePointer->m_pixels)
+			px.SetPosition(Vector2i(px.GetPosition().x + m_position.x, px.GetPosition().y + m_position.y));
+	}
+
 
 	Sprite::Sprite() :
 		m_imagePointer(0),
@@ -30,24 +42,17 @@ namespace se
 
 	void Sprite::SetPosition(Vector2i newPosition)
 	{
-		for (Pixel & px : m_imagePointer->m_pixels)
-			px.SetPosition(Vector2i(px.GetPosition().x - m_position.x, px.GetPosition().y - m_position.y));
-
+		setImagePixelsAbsoltePosition();
 		m_position = newPosition;
+		setImagePixelsRelativePosition();
 
-		for(Pixel & px : m_imagePointer->m_pixels)
-			px.SetPosition(Vector2i(px.GetPosition().x + m_position.x, px.GetPosition().y + m_position.y));
 	}
 
 	void Sprite::Move(Vector2i offset)
 	{
-		for (Pixel & px : m_imagePointer->m_pixels)
-			px.SetPosition(Vector2i(px.GetPosition().x - m_position.x, px.GetPosition().y - m_position.y));
-
+		setImagePixelsAbsoltePosition();
 		m_position += offset;
-		
-		for (Pixel & px : m_imagePointer->m_pixels)
-			px.SetPosition(Vector2i(px.GetPosition().x + m_position.x, px.GetPosition().y + m_position.y));
+		setImagePixelsRelativePosition();
 	}
 
 	void Sprite::SetImagePointer(Image & imageReference)

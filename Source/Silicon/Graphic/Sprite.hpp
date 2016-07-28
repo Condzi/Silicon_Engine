@@ -8,6 +8,10 @@ namespace se
 
 	class Sprite
 	{
+	private:
+		void setImagePixelsAbsoltePosition();
+		void setImagePixelsRelativePosition();
+
 	public:
 		Sprite();
 		Sprite(Image & imagePointer, Vector2i position);
