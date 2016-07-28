@@ -12,6 +12,11 @@ namespace se
 	class Image
 	{
 		friend class Sprite;
+		friend class Renderer;
+
+	private:
+		void deletePixels();
+
 	public:
 		Image();
 		Image(const std::string & pathToFile);
@@ -21,7 +26,7 @@ namespace se
 		bool LoadFromFile(const std::string & pathToFile);
 
 	private:
-		std::vector<Pixel> m_pixels;
+		std::vector<Pixel*> m_pixels;
 		Vector2u16 m_size;
 	};
 

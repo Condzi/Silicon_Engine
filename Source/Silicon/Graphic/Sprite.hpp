@@ -21,8 +21,8 @@ namespace se
 
 		Vector2i GetPosition();
 		Vector2u16 GetSize();
-		Image GetImage();
-		bool HaveSprite();
+		Image * GetImagePointer();
+		bool HaveImage();
 
 		void SetPosition(Vector2i newPosition);
 		void Move(Vector2i offset);

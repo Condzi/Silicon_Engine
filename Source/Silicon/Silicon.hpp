@@ -28,6 +28,4 @@ namespace se
 #include "Util/Enums/FontSizes.hpp"
 #include "Util/ConsoleManip/ConsoleManip.hpp"
 
-#include "Graphic/Pixel.hpp"
-#include "Graphic/Image.hpp"
-#include "Graphic/Sprite.hpp"
+#include "Silicon/Graphic/Renderer/Renderer.hpp"

@@ -5,14 +5,14 @@ namespace se
 {
 	void Sprite::setImagePixelsAbsolutePosition()
 	{
-		for (Pixel & px : m_imagePointer->m_pixels)
-			px.SetPosition(Vector2i(px.GetPosition().x - m_position.x, px.GetPosition().y - m_position.y));
+		for (Pixel * px : m_imagePointer->m_pixels)
+			px->SetPosition(Vector2i(px->GetPosition().x - m_position.x, px->GetPosition().y - m_position.y));
 	}
 
 	void Sprite::setImagePixelsRelativePosition()
 	{
-		for (Pixel & px : m_imagePointer->m_pixels)
-			px.SetPosition(Vector2i(px.GetPosition().x + m_position.x, px.GetPosition().y + m_position.y));
+		for (Pixel * px : m_imagePointer->m_pixels)
+			px->SetPosition(Vector2i(px->GetPosition().x + m_position.x, px->GetPosition().y + m_position.y));
 	}
 
 
@@ -40,15 +40,15 @@ namespace se
 		return m_imagePointer->m_size;
 	}
 
-	Image Sprite::GetImage()
+	Image * Sprite::GetImagePointer()
 	{
-		if (!HaveSprite())
-			return Image();
+		if (!HaveImage())
+			return nullptr;
 
-		return *m_imagePointer;
+		return m_imagePointer;
 	}
 
-	bool Sprite::HaveSprite()
+	bool Sprite::HaveImage()
 	{
 		return m_imagePointer != nullptr;
 	}
@@ -74,8 +74,8 @@ namespace se
 
 	void Sprite::Draw()
 	{
-		for (Pixel & px : m_imagePointer->m_pixels)
-			std::cout << px;
+		for (Pixel * px : m_imagePointer->m_pixels)
+			std::cout << *px;
 	}
 
 	void Sprite::Draw(Renderer & renderer)

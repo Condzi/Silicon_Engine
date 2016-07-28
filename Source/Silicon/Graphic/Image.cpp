@@ -3,6 +3,12 @@
 
 namespace se
 {
+	void Image::deletePixels()
+	{
+		for (Pixel * px : m_pixels)
+			delete px;
+	}
+
 	Image::Image()
 	{}
 
@@ -12,7 +18,9 @@ namespace se
 	}
 
 	Image::~Image()
-	{}
+	{
+		deletePixels();
+	}
 
 	Vector2u16 Image::GetSize()
 	{
@@ -61,7 +69,15 @@ namespace se
 		if (pixels.size() != size.x * size.y)
 			return false;
 
-		m_pixels = pixels;
+		deletePixels();
+		m_pixels.clear();
+		m_pixels.resize(pixels.size());
+
+		for (unsigned i = 0; i < m_pixels.size(); ++i)
+		{
+			m_pixels[i] = new Pixel(pixels[i]);
+		}
+
 		m_size = size;
 
 		return true;

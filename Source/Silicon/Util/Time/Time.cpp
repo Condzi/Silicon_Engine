@@ -51,4 +51,68 @@ namespace se
 	{
 		return Time(val);
 	}
+
+	Time & Time::operator+=(Time & other)
+	{
+		this->m_microseconds += other.m_microseconds;
+		return *this;
+	}
+
+	Time & Time::operator-=(Time & other)
+	{
+		this->m_microseconds -= other.m_microseconds;
+
+		return *this;
+	}
+
+	Time & Time::operator*=(Time & other)
+	{
+		this->m_microseconds *= other.m_microseconds;
+
+		return *this;
+	}
+
+	Time & Time::operator/=(Time & other)
+	{
+		this->m_microseconds /= other.m_microseconds;
+		return *this;
+	}
+
+	bool operator==(Time left, Time & right)
+	{
+		return left.m_microseconds == right.m_microseconds;
+	}
+	bool operator!=(Time left, Time & right)
+	{
+		return !(left == right);
+	}
+	bool operator<(Time left, Time & right)
+	{
+		return left.m_microseconds < right.m_microseconds;
+	}
+	bool operator>(Time left, Time & right)
+	{
+		return left.m_microseconds > right.m_microseconds;
+	}
+
+	Time & operator+(Time left, Time & right)
+	{
+		left += right;
+		return left;
+	}
+	Time & operator-(Time left, Time & right)
+	{
+		left -= right;
+		return left;
+	}
+	Time & operator*(Time left, Time & right)
+	{
+		left *= right;
+		return left;
+	}
+	Time & operator/(Time left, Time & right)
+	{
+		left /= right;
+		return left;
+	}
 }

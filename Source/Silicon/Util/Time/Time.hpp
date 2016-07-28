@@ -20,11 +20,26 @@ namespace se
 		friend Time Microseconds(const int64_t & val);
 
 		Time& operator=(const Time & other);
+		Time & operator=(Time & other);
+		Time & operator+=(Time & other);
+		Time & operator-=(Time & other);
+		Time & operator*=(Time & other);
+		Time & operator/=(Time & other);
 		
 	private:
 		// 1 second - 1 000 000 microseconds
 		// 1 millisecond - 1 000 microseconds
 		int64_t m_microseconds;
+
+
+		friend bool operator==(Time left, Time & right);
+		friend bool operator!=(Time left, Time & right);
+		friend bool operator<(Time left, Time & right);
+		friend bool operator>(Time left, Time & right);
+		friend Time & operator+(Time left, Time & right);
+		friend Time & operator-(Time left, Time & right);
+		friend Time & operator*(Time left, Time & right);
+		friend Time & operator/(Time left, Time & right);
 	};
 }
 
