@@ -39,7 +39,6 @@ namespace se
 		file >> size.x;
 		file >> size.y;
 
-
 		for(unsigned i = 0; i < size.x * size.y; ++i)
 		{
 			file >> temporaryInt;

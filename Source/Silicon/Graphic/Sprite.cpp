@@ -75,7 +75,7 @@ namespace se
 	void Sprite::Draw()
 	{
 		for (Pixel & px : m_imagePointer->m_pixels)
-			std::cout << px;
+			px.Draw();
 	}
 
 	void Sprite::Draw(Renderer & renderer)

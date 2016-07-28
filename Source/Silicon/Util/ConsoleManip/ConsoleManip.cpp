@@ -10,7 +10,7 @@ namespace se
 			in::SetCursorPosition(se::Vector2u16(x, y), console);
 		}
 
-		void SetCursorPosition(Vector2u16 pos, const HANDLE & console)
+		void SetCursorPosition(const Vector2u16 & pos, const HANDLE & console)
 		{
 			COORD coord = { pos.x, pos.y };
 			
@@ -69,7 +69,7 @@ namespace se
 		}
 
 
-		void SetTextColor(uint8_t foreground, uint8_t background, const HANDLE & console)
+		void SetTextColor(const uint8_t & foreground, const uint8_t & background, const HANDLE & console)
 		{
 			SetConsoleTextAttribute(console, foreground + (background * 16));
 		}

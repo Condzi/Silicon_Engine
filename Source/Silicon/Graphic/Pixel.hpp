@@ -23,10 +23,8 @@ namespace se
 		void SetPosition(Vector2i newPosition);
 
 		void Move(Vector2i offset);
+		void Draw();
 
-
-		//friend bool operator==(const Pixel & left, const Pixel & right);
-		//friend bool operator!=(const Pixel & left, const Pixel & right);
 		friend std::ostream & operator<<(std::ostream & os, const Pixel & pixel);
 
 	private:

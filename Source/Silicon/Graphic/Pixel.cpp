@@ -65,17 +65,15 @@ namespace se
 		m_position += offset;
 	}
 
-
-	//bool operator==(const Pixel & left, const Pixel & right)
-	//{
-	//	return (left.m_look == right.m_look) && (left.m_foregroundColor == right.m_foregroundColor) &&
-	//		(left.m_backgroundColor == right.m_backgroundColor) && (left.m_position == right.m_position);
-	//}
-
-	//bool operator!=(const Pixel & left, const Pixel & right)
-	//{
-	//	return !(left == right);
-	//}
+	void Pixel::Draw()
+	{
+		in::SetCursorPosition(m_position);
+		in::SetTextColor(m_foregroundColor, m_backgroundColor);
+		fwrite(&m_look, 1, 1, stderr);
+		//putc(m_look, stderr);
+		//std::cout << m_look;
+		//putchar(m_look);
+	}
 
 	std::ostream & operator<<(std::ostream & os, const Pixel & pixel)
 	{

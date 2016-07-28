@@ -14,8 +14,7 @@ namespace se
 
 	void Renderer::AddSprite(Sprite & sprite)
 	{
-		for (Pixel & px : sprite.GetImagePointer()->m_pixels)
-			m_buffer.push_back(px);
+		m_buffer.push_back(&sprite);
 	}
 
 	void Renderer::Clear()
@@ -25,8 +24,8 @@ namespace se
 
 	void Renderer::Display()
 	{
-		for (Pixel & px : m_buffer)
-			std::cout << px;
+		for (Sprite * spr : m_buffer)
+			spr->Draw();
 	}
 }
 
