@@ -3,7 +3,7 @@
 
 namespace se
 {
-	void Sprite::setImagePixelsAbsoltePosition()
+	void Sprite::setImagePixelsAbsolutePosition()
 	{
 		for (Pixel & px : m_imagePointer->m_pixels)
 			px.SetPosition(Vector2i(px.GetPosition().x - m_position.x, px.GetPosition().y - m_position.y));
@@ -55,14 +55,14 @@ namespace se
 
 	void Sprite::SetPosition(Vector2i newPosition)
 	{
-		setImagePixelsAbsoltePosition();
+		setImagePixelsAbsolutePosition();
 		m_position = newPosition;
 		setImagePixelsRelativePosition();
 	}
 
 	void Sprite::Move(Vector2i offset)
 	{
-		setImagePixelsAbsoltePosition();
+		setImagePixelsAbsolutePosition();
 		m_position += offset;
 		setImagePixelsRelativePosition();
 	}
