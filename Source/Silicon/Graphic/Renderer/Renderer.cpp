@@ -25,7 +25,9 @@ namespace se
 	void Renderer::Display()
 	{
 		for (Sprite * spr : m_buffer)
-			spr->Draw();
+			for (Pixel & px : spr->GetImagePointer()->m_pixels)
+				px.Draw();
+			
 	}
 }
 
