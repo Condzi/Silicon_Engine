@@ -30,3 +30,4 @@ namespace se
 
 #include "Graphic/Pixel.hpp"
 #include "Graphic/Image.hpp"
+#include "Graphic/Sprite.hpp"

@@ -14,19 +14,9 @@ namespace se
 	Image::~Image()
 	{}
 
-	std::vector<Pixel> Image::GetPixels()
-	{
-		return m_pixels;
-	}
-
 	Vector2u16 Image::GetSize()
 	{
 		return m_size;
-	}
-
-	const std::vector<Pixel>& Image::GetPixelsReference()
-	{
-		return m_pixels;
 	}
 
 	bool Image::LoadFromFile(const std::string & pathToFile)

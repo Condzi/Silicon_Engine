@@ -4,6 +4,8 @@
 
 namespace se
 {
+	class Image; 
+
 	class Sprite
 	{
 	public:
