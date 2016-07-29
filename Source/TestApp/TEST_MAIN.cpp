@@ -8,6 +8,7 @@ int main()
 	Image img;
 	Sprite spr;
 	Renderer ren;
+	NewRenderer nren;
 
 	Clock fpsClock;
 	Clock counterClock;
@@ -25,11 +26,11 @@ int main()
 	/*	if(fpsLimit > 0)
 			Sleep(fpsLimit + fpsDelta.AsMilliseconds() / 1015);*/
 		
-		ren.Clear();
+		nren.Clear();
 		//in::ClearScreen();
 		for (int i = 0; i < 50; ++i)
-			ren.AddSprite(spr);
-		ren.Display();
+//			nren.Draw(spr);
+		nren.Display();
 
 		if (counterClock.GetEleapsedTime().AsMilliseconds() >= 1000)
 		{

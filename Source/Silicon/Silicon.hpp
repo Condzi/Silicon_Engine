@@ -29,3 +29,4 @@ namespace se
 #include "Util/ConsoleManip/ConsoleManip.hpp"
 
 #include "Silicon/Graphic/Renderer/Renderer.hpp"
+#include "Silicon/Graphic/NewRenderer/NewRenderer.hpp"
