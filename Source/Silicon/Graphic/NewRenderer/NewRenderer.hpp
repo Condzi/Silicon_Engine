@@ -9,10 +9,6 @@ namespace se
 
 	class NewRenderer
 	{
-	private:
-		void addPixel(Pixel & px);
-		void fillBlanks();
-
 	public:
 		NewRenderer();
 		NewRenderer(const HANDLE & console);
@@ -24,7 +20,7 @@ namespace se
 
 	private:
 		HANDLE m_hConsoleBuffer;
-		std::vector<std::vector<Pixel>> m_pixels;
+		std::vector<Pixel> m_pixels;
 	};
 }
 
