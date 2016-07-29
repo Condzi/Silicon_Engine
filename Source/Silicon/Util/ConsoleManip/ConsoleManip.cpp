@@ -20,29 +20,17 @@ namespace se
 
 		void ClearScreen(char cleanChar, const HANDLE & console)
 		{
-			COORD coordScreen = { 0, 0 };    // home for the cursor 
+			COORD coordScreen = { 0, 0 };  
 			DWORD cCharsWritten;
-			CONSOLE_SCREEN_BUFFER_INFO csbi;
 			DWORD dwConSize;
+			HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
+			CONSOLE_SCREEN_BUFFER_INFO  csbi;
 
-
-			GetConsoleScreenBufferInfo(console, &csbi);
+			GetConsoleScreenBufferInfo(hCon, &csbi);
 			dwConSize = csbi.dwSize.X * csbi.dwSize.Y;
-
-			FillConsoleOutputCharacter(console,        // Handle to console screen buffer 
-				(TCHAR) cleanChar,     // Character to write to the buffer
-				dwConSize,       // Number of cells to write 
-				coordScreen,     // Coordinates of first cell 
-				&cCharsWritten);// Receive number of characters writte
-
-
-			GetConsoleScreenBufferInfo(console, &csbi);
-
-			FillConsoleOutputAttribute(console,         // Handle to console screen buffer 
-				csbi.wAttributes, // Character attributes to use
-				dwConSize,        // Number of cells to set attribute 
-				coordScreen,      // Coordinates of first cell 
-				&cCharsWritten);
+			FillConsoleOutputCharacter(hCon, TCHAR(cleanChar), dwConSize, coordScreen, &cCharsWritten);
+			GetConsoleScreenBufferInfo(hCon, &csbi);
+			FillConsoleOutputAttribute(hCon, csbi.wAttributes, dwConSize, coordScreen, &cCharsWritten);
 		}
 
 

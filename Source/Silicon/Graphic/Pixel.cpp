@@ -67,6 +67,12 @@ namespace se
 
 	void Pixel::Draw()
 	{
+		//DWORD len = 1;
+		//DWORD dwBytesWritten = 0;
+		//COORD pos = { m_position.x, m_position.y };
+		//in::SetTextColor(m_foregroundColor, m_backgroundColor);
+		//WriteConsoleOutputCharacter(GetStdHandle(STD_OUTPUT_HANDLE), LPCWSTR(m_look), len, pos, &dwBytesWritten);
+
 		in::SetCursorPosition(m_position);
 		in::SetTextColor(m_foregroundColor, m_backgroundColor);
 		fwrite(&m_look, 1, 1, stderr);
@@ -74,14 +80,4 @@ namespace se
 		//std::cout << m_look;
 		//putchar(m_look);
 	}
-
-	std::ostream & operator<<(std::ostream & os, const Pixel & pixel)
-	{
-		in::SetCursorPosition(pixel.m_position);
-		in::SetTextColor(pixel.m_foregroundColor, pixel.m_backgroundColor);
-		os << pixel.m_look;
-
-		return os;
-	}
-
 }

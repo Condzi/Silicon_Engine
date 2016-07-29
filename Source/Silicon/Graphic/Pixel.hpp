@@ -7,6 +7,8 @@ namespace se
 {
 	class Pixel
 	{
+		friend class Renderer;
+
 	public:
 		Pixel();
 		Pixel(Color fgColor, Color bgColor, Vector2i position);
@@ -24,8 +26,6 @@ namespace se
 
 		void Move(Vector2i offset);
 		void Draw();
-
-		friend std::ostream & operator<<(std::ostream & os, const Pixel & pixel);
 
 	private:
 		char m_look;

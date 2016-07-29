@@ -5,9 +5,6 @@ using namespace se;
 
 int main()
 {
-	std::ios_base::sync_with_stdio(false);
-	std::cin.tie(0);
-
 	Image img;
 	Sprite spr;
 	Renderer ren;
@@ -30,7 +27,7 @@ int main()
 		
 		ren.Clear();
 		//in::ClearScreen();
-		for(int i = 0; i<50; ++i)
+		for (int i = 0; i < 50; ++i)
 			ren.AddSprite(spr);
 		ren.Display();
 
@@ -45,7 +42,7 @@ int main()
 		}
 
 		++fpsCounter;
-		fpsDelta = fpsClock.Restart();
+		//fpsDelta = fpsClock.Restart();
 	}
 	
 	std::cin.get();
