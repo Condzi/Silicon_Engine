@@ -29,9 +29,8 @@ namespace se
 			{
 				in::SetCursorPosition(px.m_position);
 				in::SetTextColor(px.m_foregroundColor, px.m_backgroundColor);
-				//fwrite(&px.m_look, 1, 1, stderr);
+				fwrite(&px.m_look, 1, 1, stderr);
 				//std::cerr << px.m_look;
-				putchar(px.m_look);
 			}
 	}
 }

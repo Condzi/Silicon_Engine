@@ -31,7 +31,7 @@ int main()
 			ren.AddSprite(spr);
 		ren.Display();
 
-		if (counterClock.GetEleapsedTime().AsMilliseconds() > 1000)
+		if (counterClock.GetEleapsedTime().AsMilliseconds() >= 1000)
 		{
 			in::SetCursorPosition(0, 10);
 			in::SetTextColor(Color::Green, Color::Gray);
