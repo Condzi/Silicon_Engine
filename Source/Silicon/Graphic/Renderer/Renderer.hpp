@@ -9,6 +9,7 @@ namespace se
 
 	class Renderer
 	{
+
 	public:
 		Renderer();
 		~Renderer();
@@ -19,7 +20,7 @@ namespace se
 		void Display();
 	
 	private:
-		std::vector<Sprite*> m_buffer;
+		std::vector<Pixel> m_buffer;
 	};
 }
 
