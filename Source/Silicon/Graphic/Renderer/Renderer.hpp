@@ -14,7 +14,8 @@ namespace se
 		Renderer();
 		~Renderer();
 
-		void AddSprite(Sprite & sprite);
+		void Draw(Sprite & sprite);
+		void Draw(Pixel & px);
 
 		void Clear();
 		void Display();

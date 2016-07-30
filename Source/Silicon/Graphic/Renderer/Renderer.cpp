@@ -12,10 +12,15 @@ namespace se
 	}
 
 
-	void Renderer::AddSprite(Sprite & sprite)
+	void Renderer::Draw(Sprite & sprite)
 	{
-		for (Pixel & px : sprite.GetImagePointer()->m_pixels)
+		for (Pixel & px : sprite.m_image->m_pixels)
 			m_buffer.push_back(px);
+	}
+
+	void Renderer::Draw(Pixel & px)
+	{
+		m_buffer.push_back(px);
 	}
 
 	void Renderer::Clear()
@@ -25,32 +30,30 @@ namespace se
 
 	void Renderer::Display()
 	{
-			
+		if (!m_buffer.size())
+			return;
+
 		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-		COORD bfsize = { GetSystemMetrics(SM_CXSIZE), GetSystemMetrics(SM_CYSIZE) };
+		COORD bfsize = { 100, 100 };
 		COORD pos = { 0,0 };
-		SMALL_RECT zone = { 0, 0, GetSystemMetrics(SM_CXSIZE), GetSystemMetrics(SM_CYSIZE) };
+		SMALL_RECT zone{ 0,0,100,100 };
 
-		CHAR_INFO ** charInfo = new CHAR_INFO * [GetSystemMetrics(SM_CXSIZE)];
-
-		for (unsigned i = 0; i < GetSystemMetrics(SM_CXSIZE); ++i)
-			charInfo[i] = new CHAR_INFO[SM_CYSIZE];
+		CHAR_INFO charInfo[100][100];
 
 		for (Pixel & px : m_buffer)
 		{
-			charInfo[px.m_position.x][px.m_position.y].Char.AsciiChar = px.m_look;
-			charInfo[px.m_position.x][px.m_position.y].Attributes = px.m_foregroundColor | px.m_backgroundColor << 4;
-			/*in::SetCursorPosition(px.m_position);
-			in::SetTextColor(px.m_foregroundColor, px.m_backgroundColor);
-			fwrite(&px.m_look, 1, 1, stderr);*/
-			//std::cerr << px.m_look;
+			charInfo[px.m_position.y][px.m_position.x].Char.AsciiChar = px.m_look;
+			charInfo[px.m_position.y][px.m_position.x].Attributes = px.m_foregroundColor | px.m_backgroundColor << 4;
 		}
+
 		WriteConsoleOutput(console, *charInfo, bfsize, pos, &zone);
 
-		for (unsigned i = 0; i < GetSystemMetrics(SM_CXSIZE); ++i)
-			delete[] charInfo[i];
-
-		delete[] charInfo;
+		//for (Pixel & px : m_buffer)
+		//{
+		//	in::SetCursorPosition(px.m_position);
+		//	in::SetTextColor(px.m_foregroundColor, px.m_backgroundColor);
+		//	fwrite(&px.m_look, 1, 1, stderr);
+		//}
 	}
 }
 
