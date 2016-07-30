@@ -13,7 +13,6 @@ namespace se
 	{
 		friend class Sprite;
 		friend class Renderer;
-		friend class NewRenderer;
 
 	public:
 		Image();

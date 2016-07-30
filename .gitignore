@@ -254,3 +254,4 @@ paket-files/
 Silicon_Engine.vcxproj
 Silicon_Engine.sln
 Silicon_Engine.vcxproj.filters
+*.diagsession
