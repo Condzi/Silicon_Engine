@@ -5,24 +5,24 @@ namespace se
 {
 	void Sprite::setImagePixelsAbsolutePosition()
 	{
-		for (Pixel & px : m_imagePointer->m_pixels)
+		for (Pixel & px : m_image->m_pixels)
 			px.SetPosition(Vector2i(px.GetPosition().x - m_position.x, px.GetPosition().y - m_position.y));
 	}
 
 	void Sprite::setImagePixelsRelativePosition()
 	{
-		for (Pixel & px : m_imagePointer->m_pixels)
+		for (Pixel & px : m_image->m_pixels)
 			px.SetPosition(Vector2i(px.GetPosition().x + m_position.x, px.GetPosition().y + m_position.y));
 	}
 
 
 	Sprite::Sprite() :
-		m_imagePointer(nullptr),
+		m_image(nullptr),
 		m_position(0, 0)
 	{}
 
 	Sprite::Sprite(Image & imagePointer, Vector2i position) :
-		m_imagePointer(&imagePointer),
+		m_image(&imagePointer),
 		m_position(position)
 	{}
 
@@ -37,20 +37,12 @@ namespace se
 
 	Vector2u16 Sprite::GetSize()
 	{
-		return m_imagePointer->m_size;
-	}
-
-	Image * Sprite::GetImagePointer()
-	{
-		if (!HaveImage())
-			return nullptr;
-
-		return m_imagePointer;
+		return m_image->m_size;
 	}
 
 	bool Sprite::HaveImage()
 	{
-		return m_imagePointer != nullptr;
+		return m_image != nullptr;
 	}
 
 	void Sprite::SetPosition(Vector2i newPosition)
@@ -69,17 +61,9 @@ namespace se
 
 	void Sprite::SetImagePointer(Image & imageReference)
 	{
-		m_imagePointer = &imageReference;
-	}
+		if (m_image != nullptr)
+			delete m_image;
 
-	void Sprite::Draw()
-	{
-		for (Pixel & px : m_imagePointer->m_pixels)
-			px.Draw();
-	}
-
-	void Sprite::Draw(Renderer & renderer)
-	{
-		renderer.AddSprite(*this);
+		m_image = new Image(imageReference);
 	}
 }

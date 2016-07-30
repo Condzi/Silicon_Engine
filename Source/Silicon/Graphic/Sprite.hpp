@@ -10,6 +10,7 @@ namespace se
 
 	class Sprite
 	{
+		friend class Renderer;
 	private:
 		void setImagePixelsAbsolutePosition();
 		void setImagePixelsRelativePosition();
@@ -21,18 +22,14 @@ namespace se
 
 		Vector2i GetPosition();
 		Vector2u16 GetSize();
-		Image * GetImagePointer();
 		bool HaveImage();
 
 		void SetPosition(Vector2i newPosition);
 		void Move(Vector2i offset);
 		void SetImagePointer(Image & imageReference);
 
-		void Draw();
-		void Draw(Renderer & renderer);
-
 	private:
-		Image * m_imagePointer;
+		Image * m_image;
 		Vector2i m_position;
 	};
 

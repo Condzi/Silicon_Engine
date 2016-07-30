@@ -9,17 +9,19 @@ namespace se
 
 	class Renderer
 	{
+
 	public:
 		Renderer();
 		~Renderer();
 
-		void AddSprite(Sprite & sprite);
+		void Draw(Sprite & sprite);
+		void Draw(Pixel & px);
 
 		void Clear();
 		void Display();
 	
 	private:
-		std::vector<Sprite*> m_buffer;
+		std::vector<Pixel> m_buffer;
 	};
 }
 
