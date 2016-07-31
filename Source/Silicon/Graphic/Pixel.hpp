@@ -5,6 +5,9 @@
 
 namespace se
 {
+	/*
+		Pixel class - use to display chars using in::Renderer
+	*/
 	class Pixel
 	{
 		friend class Renderer;

@@ -9,6 +9,10 @@ namespace se
 {
 	class Pixel;
 
+	/*
+		Storage for in::Pixel - s loaded from file.
+		Used in: in::Sprite
+	*/
 	class Image
 	{
 		friend class Sprite;

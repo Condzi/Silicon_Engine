@@ -78,7 +78,7 @@ namespace se
 		return *this;
 	}
 
-	bool operator==(Time left, Time & right)
+	bool operator==(Time & left, Time & right)
 	{
 		return left.m_microseconds == right.m_microseconds;
 	}
@@ -86,11 +86,11 @@ namespace se
 	{
 		return !(left == right);
 	}
-	bool operator<(Time left, Time & right)
+	bool operator<(Time & left, Time & right)
 	{
 		return left.m_microseconds < right.m_microseconds;
 	}
-	bool operator>(Time left, Time & right)
+	bool operator>(Time & left, Time & right)
 	{
 		return left.m_microseconds > right.m_microseconds;
 	}

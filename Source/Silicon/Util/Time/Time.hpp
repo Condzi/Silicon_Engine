@@ -32,10 +32,10 @@ namespace se
 		int64_t m_microseconds;
 
 
-		friend bool operator==(Time left, Time & right);
-		friend bool operator!=(Time left, Time & right);
-		friend bool operator<(Time left, Time & right);
-		friend bool operator>(Time left, Time & right);
+		friend bool operator==(Time & left, Time & right);
+		friend bool operator!=(Time & left, Time & right);
+		friend bool operator<(Time & left, Time & right);
+		friend bool operator>(Time & left, Time & right);
 		friend Time & operator+(Time left, Time & right);
 		friend Time & operator-(Time left, Time & right);
 		friend Time & operator*(Time left, Time & right);

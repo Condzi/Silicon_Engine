@@ -8,6 +8,7 @@ namespace se
 		// +x+x+x+x+x DECLARATIONS +x+x+x+x+x
 		// +x+x+x+x+x ------------ +x+x+x+x+x
 	
+
 	template<class T>
 	class Vector2
 	{

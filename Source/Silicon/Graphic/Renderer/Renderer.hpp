@@ -21,7 +21,7 @@ namespace se
 		void Display();
 	
 	private:
-		std::vector<Pixel> m_buffer;
+		std::vector<Pixel*> m_buffer;
 	};
 }
 

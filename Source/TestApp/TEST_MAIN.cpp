@@ -1,58 +1,38 @@
 #include "Silicon/Silicon.hpp"
-#include <iostream>
 
 using namespace se;
 
 int main()
 {
-	std::cerr.sync_with_stdio(false);
-	Image img;
-	Sprite sprites[1];
-	Renderer ren;
-
+	//Framerate Limiter
+	Time fpsDelta(0);
+	Time fpsLimit = Seconds(1.f / 32.f);
 	Clock fpsClock;
-	Clock counterClock;
+	//Framerate Counter
 	unsigned fpsCounter = 0;
-	unsigned fpsCounter2 = 0;
-	short fpsLimit = 0;
-	Time fpsDelta = 0;
+	unsigned fpsCounterBuff = fpsCounter;
+	Time fpsCounterUpdate = Seconds(1);
+	Clock fpsCounterClock;
 
-	if (!img.LoadFromFile(("Resource/image.SEgraphics")))
-		std::cout << "Failed";
+	
+	bool isRunning = true;
 
-	for (Sprite & spr : sprites)
-	{
-		spr.SetImagePointer(img);
-		spr.SetPosition(Vector2i(0, 0));
-	}
+	while (isRunning)
+	{	
+		Sleep(abs(fpsLimit.AsMilliseconds() - fpsDelta.AsMilliseconds()));
 
-
-	while (true)
-	{
-		/*	if(fpsLimit > 0)
-		Sleep(fpsLimit + fpsDelta.AsMilliseconds() / 1015);*/
-
-		ren.Clear();
-		for(Sprite & spr : sprites)
-			ren.Draw(spr);
-		ren.Display();
-
-		if (counterClock.GetEleapsedTime().AsMilliseconds() >= 1000)
+		if (fpsCounterClock.GetEleapsedTime().AsMicroseconds() >= fpsCounterUpdate.AsMicroseconds())
 		{
-			fpsCounter2 = fpsCounter;
-			counterClock.Restart();
+			fpsCounterClock.Restart();
+			fpsCounterBuff = fpsCounter;
 			fpsCounter = 0;
 		}
 
-		in::SetCursorPosition(0, 10);
-		in::SetTextColor(Color::Green, Color::Gray);
-		std::cerr << "FPS: " << fpsCounter2 << "/" << fpsLimit;
-
+		in::SetCursorPosition(0, 0);
+		std::cout << fpsCounterBuff << " FPS\n";
 
 		++fpsCounter;
-		//fpsDelta = fpsClock.Restart();
+		fpsDelta = fpsClock.Restart();
 	}
 
-	std::cin.get();
-	return 0;
 }

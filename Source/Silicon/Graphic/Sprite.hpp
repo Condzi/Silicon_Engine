@@ -8,6 +8,9 @@ namespace se
 	class Image; 
 	class Renderer;
 
+	/*
+		Sprite class - use to display advanced in::Pixels - s configurations
+	*/
 	class Sprite
 	{
 		friend class Renderer;
