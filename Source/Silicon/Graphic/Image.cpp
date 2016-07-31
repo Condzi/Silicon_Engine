@@ -39,7 +39,7 @@ namespace se
 		file >> size.x;
 		file >> size.y;
 
-		for(unsigned i = 0; i < size.x * size.y; ++i)
+		for(uint32_t i = 0; i < size.x * size.y; ++i)
 		{
 			file >> temporaryInt;
 			temporaryPixel.SetLook(temporaryInt);
@@ -68,7 +68,4 @@ namespace se
 
 		return true;
 	}
-
-
-
 }

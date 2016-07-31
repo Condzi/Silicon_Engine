@@ -15,6 +15,7 @@ namespace se
 	public:
 		Pixel();
 		Pixel(Color fgColor, Color bgColor, Vector2i position);
+		Pixel(char look);
 		~Pixel();
 
 		char GetLook();
@@ -28,7 +29,6 @@ namespace se
 		void SetPosition(Vector2i newPosition);
 
 		void Move(Vector2i offset);
-		void Draw();
 
 	private:
 		char m_look;

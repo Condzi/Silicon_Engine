@@ -21,13 +21,18 @@ namespace se
 		m_position(0, 0)
 	{}
 
-	Sprite::Sprite(Image & imagePointer, Vector2i position) :
-		m_image(&imagePointer),
-		m_position(position)
-	{}
+	Sprite::Sprite(Image & imagePointer, Vector2i position)
+	{
+		m_image = nullptr;
+		SetImagePointer(imagePointer);
+		SetPosition(position);
+	}
 
 	Sprite::~Sprite()
-	{}
+	{
+		if (HaveImage())
+			delete m_image;
+	}
 
 
 	Vector2i Sprite::GetPosition()
@@ -54,9 +59,10 @@ namespace se
 
 	void Sprite::Move(Vector2i offset)
 	{
-		setImagePixelsAbsolutePosition();
+		for (Pixel & px : m_image->m_pixels)
+			px.Move(offset);
+
 		m_position += offset;
-		setImagePixelsRelativePosition();
 	}
 
 	void Sprite::SetImagePointer(Image & imageReference)
@@ -64,6 +70,8 @@ namespace se
 		if (m_image != nullptr)
 			delete m_image;
 
-		m_image = new Image(imageReference);
+		m_image = new Image;
+		m_image->m_pixels = imageReference.m_pixels;
+		m_image->m_size = imageReference.m_size;
 	}
 }

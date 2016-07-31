@@ -15,9 +15,9 @@ namespace se
 	{}
 
 
-	float Time::AsSeconds() const
+	double Time::AsSeconds() const
 	{
-		return m_microseconds / 1000000.f;
+		return m_microseconds / 1000000;
 	}
 
 	int32_t Time::AsMilliseconds() const
@@ -37,7 +37,7 @@ namespace se
 		return *this;
 	}
 
-	Time Seconds(float val)
+	Time Seconds(double val)
 	{
 		return Time(static_cast<int64_t>(val * 1000000));
 	}
@@ -82,7 +82,7 @@ namespace se
 	{
 		return left.m_microseconds == right.m_microseconds;
 	}
-	bool operator!=(Time left, Time & right)
+	bool operator!=(Time & left, Time & right)
 	{
 		return !(left == right);
 	}
