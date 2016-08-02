@@ -1,12 +1,10 @@
 #pragma once
-#include "Image.hpp"
-#include "Silicon/Graphic/Renderer/Renderer.hpp"
+#include "Silicon/Graphic/Image.hpp"
 
 
 namespace se
 {
 	class Image; 
-	class Renderer;
 
 	/*
 		Sprite class - use to display advanced in::Pixels - s configurations

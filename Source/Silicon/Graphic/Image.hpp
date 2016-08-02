@@ -2,7 +2,7 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
-#include "Pixel.hpp"
+#include "Silicon/Graphic/Pixel.hpp"
 
 
 namespace se

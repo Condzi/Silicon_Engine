@@ -59,17 +59,16 @@ namespace se
 		m_allocatedPosition.clear();
 	}
 
-	void Renderer::Display(const HANDLE & cons)
+	void Renderer::Display()
 	{
 		if (!m_buffer.size())
 			return;
 
-		//Gdzie ma sie skonczyc tablica
+		//Where array ends
 		COORD maxWrite{ 0,0 };
-		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 		COORD bfsize = { BUFF_X, BUFF_Y };
 		COORD pos = { 0,0 };
-		SMALL_RECT zone{ 0, 0, 0, 0 };
+		SMALL_RECT zone;
 
 		CHAR_INFO charInfo[BUFF_X][BUFF_Y];
 
@@ -78,7 +77,7 @@ namespace se
 			charInfo[px->m_position.y][px->m_position.x].Char.AsciiChar = px->m_look;
 			charInfo[px->m_position.y][px->m_position.x].Attributes = px->m_foregroundColor | px->m_backgroundColor << 4;
 
-			if (px->m_position.x > maxWrite.X)
+			if (px->m_position.x > maxWrite.X) 
 				maxWrite.X = px->m_position.x;
 
 			if (px->m_position.y > maxWrite.Y)
@@ -88,7 +87,7 @@ namespace se
 		zone = { 0,0, maxWrite.X, maxWrite.Y };
 
 
-		WriteConsoleOutput(console, *charInfo, bfsize, pos, &zone);
+		WriteConsoleOutput(m_hConsoleOutput, *charInfo, bfsize, pos, &zone);
 
 		//for (Pixel * px : m_buffer)
 		//{

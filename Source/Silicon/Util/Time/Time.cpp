@@ -15,9 +15,9 @@ namespace se
 	{}
 
 
-	double Time::AsSeconds() const
+	float Time::AsSeconds() const
 	{
-		return m_microseconds / 1000000;
+		return m_microseconds / 1000000.f;
 	}
 
 	int32_t Time::AsMilliseconds() const
@@ -37,7 +37,7 @@ namespace se
 		return *this;
 	}
 
-	Time Seconds(double val)
+	Time Seconds(float val)
 	{
 		return Time(static_cast<int64_t>(val * 1000000));
 	}

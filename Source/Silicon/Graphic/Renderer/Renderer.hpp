@@ -21,7 +21,7 @@ namespace se
 		void Draw(const char * chr, Color fgColor, Color bgColor, Vector2i position);
 
 		void Clear();
-		void Display(const HANDLE & console = GetStdHandle(STD_OUTPUT_HANDLE));
+		void Display();
 	
 	private:
 		std::vector<Pixel*> m_buffer;

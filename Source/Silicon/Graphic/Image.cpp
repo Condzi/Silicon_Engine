@@ -63,7 +63,6 @@ namespace se
 		m_pixels.clear();
 
 		m_pixels = pixels;
-
 		m_size = size;
 
 		return true;

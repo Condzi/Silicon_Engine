@@ -49,11 +49,11 @@ namespace se
 
 			Rect.Top = 0;
 			Rect.Left = 0;
-			Rect.Bottom = size.y - 1;
-			Rect.Right = size.x - 1;
+			Rect.Bottom = size.y;
+			Rect.Right = size.x;
 
 			SetConsoleScreenBufferSize(console, coord);            // Set Buffer Size 
-			SetConsoleWindowInfo(console, TRUE, &Rect);            // Set Window Size 
+			SetConsoleWindowInfo(console, true, &Rect);            // Set Window Size 
 		}
 
 

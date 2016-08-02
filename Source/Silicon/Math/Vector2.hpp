@@ -1,5 +1,6 @@
 #pragma once
 #include <ostream>
+#include <string>
 
 
 namespace se
@@ -40,6 +41,8 @@ namespace se
 		friend std::ostream& operator<<(const std::ostream& stream, const Vector2<T>& vector);
 		friend bool operator==(const Vector2<T>& left, const Vector2<T>& right);
 		friend bool operator!=(const Vector2<T>& left, const Vector2<T>& right);
+
+		std::string GetInString();
 	};
 	
 		// +x+x+x+x+x ------------ +x+x+x+x+x
@@ -122,6 +125,12 @@ namespace se
 	}
 
 	template<class T>
+	inline std::string Vector2<T>::GetInString()
+	{
+		return std::string("Vector2( " + std::to_string(this->x) + " | " + std::to_string(this->y) + " )");
+	}
+
+	template<class T>
 	std::ostream & operator<<(std::ostream & stream, const Vector2<T>& vector)
 	{
 		return stream << "Vector2( " << vector.x << " | " << vector.y << " )";
@@ -130,8 +139,8 @@ namespace se
 	//Common Vector2 typedefs
 	
 	typedef Vector2<int32_t>		Vector2i;
-	typedef Vector2<float>		Vector2f;
 	typedef Vector2<uint32_t>	Vector2u;
+	typedef Vector2<float>		Vector2f;
 
-	typedef Vector2<uint16_t> Vector2u16;
+	typedef Vector2<int16_t> Vector2u16;
 }

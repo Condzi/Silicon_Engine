@@ -21,6 +21,7 @@ namespace se
 //All includes goes here...
 
 #include "Math/Vector2.hpp"
+#include "Math/Vector3.hpp"
 
 #include "Util/Time/Time.hpp"
 #include "Util/Time/Clock.hpp"
@@ -29,3 +30,7 @@ namespace se
 #include "Util/ConsoleManip/ConsoleManip.hpp"
 
 #include "Silicon/Graphic/Renderer/Renderer.hpp"
+
+
+
+

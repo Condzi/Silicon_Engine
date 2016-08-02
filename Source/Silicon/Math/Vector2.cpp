@@ -1,5 +1,6 @@
 #include "Vector2.hpp"
 
+
 namespace se
 {
 	template<class T>

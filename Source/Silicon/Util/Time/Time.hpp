@@ -11,11 +11,11 @@ namespace se
 		Time(const int64_t & microseconds);
 		~Time();
 
-		double AsSeconds() const;
+		float AsSeconds() const;
 		int32_t AsMilliseconds() const;
 		int64_t AsMicroseconds() const;
 
-		friend Time Seconds(double val);
+		friend Time Seconds(float val);
 		friend Time Milliseconds(const int32_t & val);
 		friend Time Microseconds(const int64_t & val);
 
