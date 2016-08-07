@@ -1,5 +1,6 @@
 #pragma once
 #include <cinttypes>
+#include <thread>
 
 
 namespace se
@@ -18,6 +19,7 @@ namespace se
 		friend Time Seconds(float val);
 		friend Time Milliseconds(const int32_t & val);
 		friend Time Microseconds(const int64_t & val);
+		friend void Sleep(const Time & time);
 
 		Time& operator=(const Time & other);
 		Time & operator+=(Time & other);

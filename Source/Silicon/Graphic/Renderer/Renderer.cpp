@@ -44,7 +44,7 @@ namespace se
 			m_buffer.push_back(px);
 			m_allocatedPosition.push_back(m_buffer.size() - 1);
 			
-			++position.x;
+			position.x += 1;
 		}
 	}
 
@@ -78,8 +78,8 @@ namespace se
 
 		for (Pixel * px : m_buffer)
 		{
-			charInfo[px->m_position.y][px->m_position.x].Char.AsciiChar = px->m_look;
-			charInfo[px->m_position.y][px->m_position.x].Attributes = px->m_foregroundColor | px->m_backgroundColor << 4;
+			charInfo[(px->m_position.x < 0) ? 0 : px->m_position.x][(px->m_position.y < 0) ? 0 : px->m_position.y].Char.AsciiChar = px->m_look;
+			charInfo[(px->m_position.x < 0) ? 0 : px->m_position.x][(px->m_position.y < 0) ? 0 : px->m_position.y].Attributes = px->m_foregroundColor | px->m_backgroundColor << 4;
 
 			if (px->m_position.x > maxWrite.X) 
 				maxWrite.X = px->m_position.x;

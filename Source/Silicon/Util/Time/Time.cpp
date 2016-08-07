@@ -52,6 +52,11 @@ namespace se
 		return Time(val);
 	}
 
+	void Sleep(const Time & time)
+	{
+		std::this_thread::sleep_for(std::chrono::microseconds(time.m_microseconds));
+	}
+
 	Time & Time::operator+=(Time & other)
 	{
 		this->m_microseconds += other.m_microseconds;
