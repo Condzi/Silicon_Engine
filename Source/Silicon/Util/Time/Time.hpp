@@ -20,7 +20,6 @@ namespace se
 		friend Time Microseconds(const int64_t & val);
 
 		Time& operator=(const Time & other);
-		Time & operator=(Time & other);
 		Time & operator+=(Time & other);
 		Time & operator-=(Time & other);
 		Time & operator*=(Time & other);

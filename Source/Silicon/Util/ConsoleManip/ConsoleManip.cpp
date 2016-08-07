@@ -23,14 +23,11 @@ namespace se
 			COORD coordScreen = { 0, 0 };  
 			DWORD cCharsWritten;
 			DWORD dwConSize;
-			HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
-			CONSOLE_SCREEN_BUFFER_INFO  csbi;
+			CONSOLE_SCREEN_BUFFER_INFO csbi;
 
-			GetConsoleScreenBufferInfo(hCon, &csbi);
+			GetConsoleScreenBufferInfo(console, &csbi);
 			dwConSize = csbi.dwSize.X * csbi.dwSize.Y;
-			FillConsoleOutputCharacter(hCon, TCHAR(cleanChar), dwConSize, coordScreen, &cCharsWritten);
-			GetConsoleScreenBufferInfo(hCon, &csbi);
-			FillConsoleOutputAttribute(hCon, csbi.wAttributes, dwConSize, coordScreen, &cCharsWritten);
+			FillConsoleOutputCharacter(console, TCHAR(cleanChar), dwConSize, coordScreen, &cCharsWritten);
 		}
 
 
@@ -47,13 +44,13 @@ namespace se
 			coord.X = size.x;
 			coord.Y = size.y;
 
-			Rect.Top = 0;
 			Rect.Left = 0;
-			Rect.Bottom = size.y;
+			Rect.Top = 0;
 			Rect.Right = size.x;
+			Rect.Bottom = size.y;
 
 			SetConsoleScreenBufferSize(console, coord);            // Set Buffer Size 
-			SetConsoleWindowInfo(console, true, &Rect);            // Set Window Size 
+			SetConsoleWindowInfo(console, TRUE, &Rect);            // Set Window Size 
 		}
 
 

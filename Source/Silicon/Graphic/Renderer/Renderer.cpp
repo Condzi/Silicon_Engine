@@ -12,8 +12,7 @@ namespace se
 	{}
 
 	Renderer::~Renderer()
-	{
-	}
+	{}
 
 
 	void Renderer::Draw(Sprite & sprite)
@@ -45,12 +44,17 @@ namespace se
 			m_buffer.push_back(px);
 			m_allocatedPosition.push_back(m_buffer.size() - 1);
 			
-			position.x += 1;
+			++position.x;
 		}
 	}
 
 	void Renderer::Clear()
 	{
+		if (!m_buffer.size())
+			return;
+
+		in::ClearScreen();
+
 		if (m_allocatedPosition.size())
 			for (unsigned & i : m_allocatedPosition)
 				delete m_buffer[i];

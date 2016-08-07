@@ -7,7 +7,7 @@ namespace se
 	class Image; 
 
 	/*
-		Sprite class - use to display advanced in::Pixels - s configurations
+		Sprite class - use to display advanced se::Pixels - s configurations
 	*/
 	class Sprite
 	{
